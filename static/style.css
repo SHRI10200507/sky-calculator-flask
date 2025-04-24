@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f0f;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sky-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(ellipse at center, #141414 0%, #0a0a0a 100%);
+    z-index: -2;
+    overflow: hidden;
+}
+
+/* Moons */
+.moon-glow {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+    border-radius: 50%;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.moon-left {
+    top: 20%;
+    left: 10%;
+    animation-delay: 1s;
+}
+
+.moon-right {
+    top: 25%;
+    left: 90%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.1); }
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    background: white;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+.star1 { top: 10%; left: 15%; animation-delay: 0s; }
+.star2 { top: 30%; left: 85%; animation-delay: 1s; }
+.star3 { top: 60%; left: 10%; animation-delay: 2s; }
+.star4 { top: 80%; left: 90%; animation-delay: 3s; }
+.star5 { top: 50%; left: 50%; animation-delay: 0.5s; }
+.star6 { top: 20%; left: 70%; animation-delay: 1.5s; }
+.star7 { top: 70%; left: 30%; animation-delay: 2.5s; }
+.star8 { top: 40%; left: 60%; animation-delay: 3.5s; }
+
+/* Calculator */
+.calculator {
+    background: #1c1c1e;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 360px;
+    z-index: 1;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fefefe;
+}
+
+/* Expression display */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #2c2c2e;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    text-align: right;
+}
+
+/* Keypad buttons */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.keypad button {
+    padding: 16px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to right, #e50914, #b20710);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.keypad button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #e50914aa;
+}
+
+/* Output */
+.output {
+    margin-top: 20px;
+    background: #2c2c2e;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+}
